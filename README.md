@@ -1,5 +1,10 @@
-# Asynchrounous Programming
-This repository will be used for studying asynchronous programming. The studying goal is to understand how async programming can be more efficient doing the same work of a sync program, by using two methods that do the same operations, but one is using asynchronous code to do the tasks concurrently and the other is using sync code.
-Since algorithms look like cooking recipes, I thought it would be a good idea to use a simple recipe to code the program.
+# Why I Created This Repository?
+The will to create this repository came from a job's project that I was working on. The problem that I faced on required reducing the time spent to run the queries that we were sending to Sql Server.
+
+## What Created This Problem?
+We had to SELECT a huge amount of data from different tables, although we were using async programming on the queries, we were awaiting the query to finish for the code to keep running.
+
+## How To Solve It?
+Since we had a problem with asynchronous programming, I decided that it would be a good idea to review what I studied from asynchronous programming, so I hope this repository works for me - and you - as a studying object.
 
 
