@@ -1,7 +1,7 @@
 # Why I Created This Repository?
 The will to create this repository came from a job's project that I was working on. The problem that I faced on required reducing the time spent to run the queries that we were sending to Sql Server.
 
-## But What Project Was That? :thinking::thinking:
+## But what kind of Project was that? :thinking::thinking:
 * .NET Framework Project.
 * Domain-Driven Design (DDD).
 * Sql Server.
