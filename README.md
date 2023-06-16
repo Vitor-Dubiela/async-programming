@@ -5,6 +5,7 @@ The will to create this repository came from a job's project that I was working 
 * .NET Framework Project.
 * Domain-Driven Design (DDD).
 * Sql Server.
+
 The Domain manages users and vacancies infos, allowing users to apply for jobs and the Employers to read the resumé of their candidates.
 
 
