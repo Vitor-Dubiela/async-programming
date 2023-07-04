@@ -1,5 +1,5 @@
 # Why I Created This Repository?
-The will to create this repository came from a job's project that I was working on. The problem I faced required using non-blocking code to run the Sql queries, which I solved using asynchronous programming, and then, I decided that it would be a good idea to review what I studied from asynchronous programming. I hope this repository works for me - and you - as a studying object.
+The will to create this repository came from a job's project that I was working on. The problem I faced required using non-blocking code to run the Sql queries, which I solved using asynchronous programming, and then, I decided that it would be a good idea to review what I studied from async programming. I hope this repository works for me - and you - as a studying object.
 
 ## But what kind of Project was that? :thinking::thinking:
 * .NET Framework Project.
