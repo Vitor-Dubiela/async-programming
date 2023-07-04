@@ -1,5 +1,5 @@
 # Why I Created This Repository?
-The will to create this repository came from a job's project that I was working on. The problem that I faced on required reducing the time spent to run the queries that we were sending to Sql Server.
+The will to create this repository came from a job's project that I was working on. The problem I faced required using non-blocking code to run the Sql queries, which I solved using asynchronous programming, and then, I decided that it would be a good idea to review what I studied from asynchronous programming. I hope this repository works for me - and you - as a studying object.
 
 ## But what kind of Project was that? :thinking::thinking:
 * .NET Framework Project.
@@ -10,9 +10,8 @@ The Domain manages users and vacancies infos, allowing users to apply for jobs a
 
 
 # What Created This Problem? :scream:
-We had to SELECT a huge amount of data from different tables, although we were using async programming on the queries, we were awaiting the query to finish for the code to keep running, so it was blocking the execution of the code.
+The business logic used to get the candidates infos was blocking the code. Although the SELECT method was async, it was awaiting the query to finish, and as it was a lot of data to select, the code was being blocked.
 
 # How To Solve It? :monocle_face:
-Since we had a problem with asynchronous programming, I decided that it would be a good idea to review what I studied from asynchronous programming, so I hope this repository works for me - and you - as a studying object.
-
+...
 
