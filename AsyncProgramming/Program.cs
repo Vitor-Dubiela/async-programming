@@ -4,83 +4,81 @@ namespace AsyncProgramming
 {
     class Program
     {
+        private static Stopwatch _sw = new Stopwatch();
+
         static async Task Main()
         {
-            Stopwatch sw = Stopwatch.StartNew();
-            await PrepareCoffeeAsync();
-            sw.Stop();
+            _sw = Stopwatch.StartNew();
+            Console.WriteLine("----------------- PrepareCoffee ----------------");
+            Console.WriteLine($"PrepareCoffee - Started preparing the coffee \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
 
-            Console.WriteLine($"PrepareCoffeeAsync() - Time running: {sw.ElapsedMilliseconds}ms\n\n");
-
-            sw = Stopwatch.StartNew();
             PrepareCoffee();
-            sw.Stop();
 
-            Console.WriteLine($"PrepareCoffee() - Time running: {sw.ElapsedMilliseconds}ms");
+            Console.WriteLine($"PrepareCoffee - Finished preparing the coffee \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}");
+            Console.WriteLine("----------------- PrepareCoffee ----------------\n\n\n");
+            _sw.Stop();
+            
+            _sw = Stopwatch.StartNew();
+            Console.WriteLine("----------------- PrepareCoffeeAsync ----------------");
+            await Console.Out.WriteLineAsync($"Started preparing the coffee Async \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
+
+            await PrepareCoffeeAsync();
+
+            await Console.Out.WriteLineAsync($"Finished preparing the coffee Async \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}");
+            Console.WriteLine("----------------- PrepareCoffeeAsync ----------------");
+            _sw.Stop();
         }
 
         private static void PrepareCoffee()
         {
-            Console.WriteLine("Started preparing coffee...");
+            BoilWater();
 
-            var boiledWater = BoilWater();
+            PrepareTable();
+        }
 
-            GetItensForPreparing();
+        private static void BoilWater()
+        {
+            Console.WriteLine($"BoilWater - Started boiling the water \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
 
-            var water = boiledWater;
+            Task.Delay(10000).Wait();
 
-            Console.WriteLine($"Pouring the {water} to make the coffee...");
-            Task.Delay(8000).Wait();
+            Console.WriteLine($"BoilWater - Finished boiling the water \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
+        }
 
-            Console.WriteLine("The coffee is ready ;D");
+        private static void PrepareTable()
+        {
+            Console.WriteLine($"PrepareTable - Started preparing the table \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
+
+            Task.Delay(5000).Wait();
+
+            Console.WriteLine($"PrepareTable - Finished preparing the table \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
         }
 
         private static async Task PrepareCoffeeAsync()
         {
-            Console.WriteLine("Started preparing coffee...");
+            var task = BoilWaterAsync();
 
-            var boiledWater = BoilWaterAsync();
+            await PrepareTableAsync();
 
-            await GetItensForPreparingAsync();
-
-            var water = await boiledWater;
-
-            Console.WriteLine($"Pouring the {water} to make the coffee...");
-            Task.Delay(8000).Wait();
-
-            Console.WriteLine("The coffee is ready ;D");
+            await task;
         }
 
-        private static void GetItensForPreparing()
+        private static async Task BoilWaterAsync()
         {
-            Console.WriteLine("Taking the itens to prepare the coffee...");
-            Task.Delay(2000).Wait();
-            Console.WriteLine("Got all the itens.");
+            Console.WriteLine($"BoilWaterAsync - Started boiling the water \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
+
+            await Task.Delay(10000);
+
+            Console.WriteLine($"BoilWaterAsync - Finished boiling the water \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
         }
 
-        private static async Task GetItensForPreparingAsync()
+        private static async Task PrepareTableAsync()
         {
-            Console.WriteLine("Taking the itens to prepare the coffee...");
-            await Task.Delay(2000);
-            Console.WriteLine("Got all the itens.");
-        }
+            Console.WriteLine($"PrepareTableAsync - Started preparing the table \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
 
-        private static string BoilWater()
-        {
-            Console.WriteLine("Start heating the kettle...");
-            Task.Delay(5000).Wait();
-            Console.WriteLine("The kettle is ready.");
-
-            return "boiled water";
-        }
-
-        private static async Task<string> BoilWaterAsync()
-        {
-            Console.WriteLine("Start heating the kettle...");
             await Task.Delay(5000);
-            Console.WriteLine("The kettle is ready.");
 
-            return "boiled water";
+            Console.WriteLine($"PrepareTableAsync - Finished preparing the table \nTime running: {_sw.ElapsedMilliseconds}ms \nThread: {Thread.CurrentThread.ManagedThreadId}\n\n");
         }
     }
 }
