@@ -1,4 +1,12 @@
-﻿using System.Diagnostics;
+﻿/* Author: Vitor Dubiela
+ * Date: 2023/07/12
+ * This console project was created to study async programming and understand 
+ * how it can be used to avoid code blocking.
+ * To make the code example more didactic, as we write code as a sequence of statements, 
+ * like a cooking recipe, the code below follows the steps to prepare a coffee.
+ */
+
+using System.Diagnostics;
 
 namespace AsyncProgramming
 {
